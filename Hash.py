@@ -47,10 +47,10 @@ for texto, codigo_sha256, codigo_md5 in data:
     text_md5 = hashlib.md5(texto.encode('utf-8')).hexdigest()
 
     if codigo_sha256 == text_sha256 and codigo_md5 == text_md5:
-        print(f'"{texto}" - SHA-256: {text_sha256} - MD5: {text_md5} - Ambos corretos')
-    elif codigo_sha256 == text_sha256:
-        print(f'"{texto}" - SHA-256: {text_sha256} - Apenas SHA-256 correto')
-    elif codigo_md5 == text_md5:
-        print(f'"{texto}" - MD5: {text_md5} - Apenas MD5 correto')
+        print(f'"{texto}" - SHA256 Gerado: {text_sha256} - MD5 Gerado: {text_md5} - SHA256 Fornecido: {codigo_sha256} - MD5 Fornecido: {codigo_md5} - Ambos corretos\n')
+    elif codigo_sha256 == text_sha256 and codigo_md5 != text_md5:
+        print(f'"{texto}" - SHA256 Gerado: {text_sha256} - MD5 Gerado: {text_md5} - SHA256 Fornecido: {codigo_sha256} - MD5 Fornecido: {codigo_md5} - Apenas SHA-256 correto\n')
+    elif codigo_md5 == text_md5 and codigo_sha256 != text_sha256:
+        print(f'"{texto}" - SHA256 Gerado: {text_sha256} - MD5 Gerado: {text_md5} - SHA256 Fornecido: {codigo_sha256} - MD5 Fornecido: {codigo_md5} - Apenas MD5 correto\n')
     else:
-        print(f'"{texto}" - Nenhum dos códigos está correto')
+        print(f'"{texto}" - SHA256 Gerado: {text_sha256} - MD5 Gerado: {text_md5} - SHA256 Fornecido: {codigo_sha256} - MD5 Fornecido: {codigo_md5} - Nenhum dos códigos está correto\n')
